@@ -1,5 +1,5 @@
 <template>
-  <div class="loader d-flex justify-content-center">
+  <div class="loader d-flex justify-content-center mt-5">
     <div class="loadingio-spinner-bean-eater-loz2t8js4z">
       <div class="ldio-i1y54870orm">
         <div>
