@@ -5,9 +5,7 @@
         <div class="col mt-5">
 
           <div v-if="isLoading" class="loader">
-            <h2>
-              Sto caricando...
-            </h2>
+            <MainLoader />
           </div>
 
           <div v-else class="posts-container">
@@ -17,13 +15,13 @@
                     <PostCard v-for="post in posts" :key="post.id" :post="post" />
                 </div>
             </div>
-          </div>
 
             <div class="d-flex align-items-center justify-content-around mb-5 mt-3">
                 <a :class="currentPage != 1 ? '' : 'disabled'" class="btn btn-primary" @click="getPrevPage(), getPosts()">Prev Page</a>
                 <div class="ms_current_page font-weight-bold">{{currentPage}}</div>
                 <a :class="currentPage >= 9 ? 'disabled' : ''" class="btn btn-primary" @click="getNextPage(), getPosts()">Next Page</a>
-            </div>  
+            </div>
+          </div>  
         </div>
       </div>
     </div>
@@ -32,12 +30,14 @@
 
 <script>
 import PostCard from '../components/PostCard.vue';
+import MainLoader from '../components/MainLoader.vue';
 import axios from 'axios';
 
     export default {
         name: 'HomePage',
         components: {
           PostCard,
+          MainLoader,
         },
 
         data: function(){
@@ -80,6 +80,12 @@ import axios from 'axios';
     }
 </script>
 
-<style>
-
+<style lang='scss' scoped>
+    .ms_current_page{
+        font-size: 20px;
+        border: 2px solid;
+        border-color: #3490DC;
+        border-radius: 100px;
+        padding: 5px 15px;
+    }
 </style>
