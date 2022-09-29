@@ -1,7 +1,7 @@
 <template>
   <div class="col-4 p-3">
     <div class="card">
-      <img :src="isValidURL(post.post_image) ? post.post_image : 'storage/' + post.post_image" class="ms_post_image card-img-top" :alt="post.title">
+      <img :src="isValidURL(post.post_image) ? post.post_image : 'http://127.0.0.1:8000/storage/' + post.post_image" class="ms_post_image card-img-top" :alt="post.title">
       <div class="card-body bg-white">
         <p class="card-text text-center">
           Post title: <br />

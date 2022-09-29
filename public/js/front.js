@@ -2276,7 +2276,7 @@ var render = function render() {
   }, [_c("img", {
     staticClass: "ms_post_image card-img-top",
     attrs: {
-      src: _vm.isValidURL(_vm.post.post_image) ? _vm.post.post_image : "storage/" + _vm.post.post_image,
+      src: _vm.isValidURL(_vm.post.post_image) ? _vm.post.post_image : "http://127.0.0.1:8000/storage/" + _vm.post.post_image,
       alt: _vm.post.title
     }
   }), _vm._v(" "), _c("div", {
