@@ -8,7 +8,6 @@
           <router-link :to="'posts/' + post.id">
             <strong>{{ post.title }}</strong>
           </router-link>
-          <!-- <strong>{{ post.title }}</strong> -->
         </p>
       </div>
     </div>
@@ -34,7 +33,9 @@
 
 <script>
 export default {
-  props: ["post"],
+  props: {
+    post: Object,
+  },
 
   methods:{
     isValidURL(string) {
