@@ -1,5 +1,5 @@
-window.Vue = require('vue');
 import Vue from 'vue';
+window.Vue = require('vue');
 
 // importiamo il componente App
 import App from './views/App';
