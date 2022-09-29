@@ -2283,7 +2283,11 @@ var render = function render() {
     staticClass: "card-body bg-white"
   }, [_c("p", {
     staticClass: "card-text text-center"
-  }, [_vm._v("\n        Post title: "), _c("br"), _c("strong", [_vm._v(_vm._s(_vm.post.title))])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n        Post title: "), _c("br"), _vm._v(" "), _c("router-link", {
+    attrs: {
+      to: "posts/" + _vm.post.id
+    }
+  }, [_c("strong", [_vm._v(_vm._s(_vm.post.title))])])], 1)])]), _vm._v(" "), _c("div", {
     staticClass: "card"
   }, [_c("ul", {
     staticClass: "list-group list-group-flush"

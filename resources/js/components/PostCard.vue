@@ -4,7 +4,11 @@
       <img :src="isValidURL(post.post_image) ? post.post_image : 'storage/' + post.post_image" class="ms_post_image card-img-top" :alt="post.title">
       <div class="card-body bg-white">
         <p class="card-text text-center">
-          Post title: <br /><strong>{{ post.title }}</strong>
+          Post title: <br />
+          <router-link :to="'posts/' + post.id">
+            <strong>{{ post.title }}</strong>
+          </router-link>
+          <!-- <strong>{{ post.title }}</strong> -->
         </p>
       </div>
     </div>
