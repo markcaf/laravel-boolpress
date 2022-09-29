@@ -2082,7 +2082,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("nav", {
-    staticClass: "navbar navbar-expand-lg navbar-light bg-light"
+    staticClass: "navbar navbar-expand-lg navbar-dark bg-dark"
   }, [_c("a", {
     staticClass: "navbar-brand",
     attrs: {
