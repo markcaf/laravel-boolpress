@@ -3,7 +3,11 @@
     <div class="container">
       <div class="row">
         <div class="col my-3">
-            <div class="post">
+            <div v-if="isLoading" class="loader">
+                <MainLoader />
+            </div>
+
+            <div v-else class="post">
                 <div class="row justify-content-center">
                     <PostCard :key="post.id" :post="post" />
                 </div>
@@ -16,12 +20,14 @@
 
 <script>
 import PostCard from '../components/PostCard.vue';
+import MainLoader from '../components/MainLoader.vue';
 import axios from 'axios';
 
 export default {
 
     components: {
         PostCard,
+        MainLoader,
     },
 
     data: function(){
@@ -29,7 +35,7 @@ export default {
             post: {
                 user: '',
             },
-            loading: false,
+            isLoading: true,
         }
     },
 
@@ -40,7 +46,7 @@ export default {
 
             axios.get(`/api/posts/${id}`).then((response) => {
                 this.post = response.data.results.data;
-                this.loading = false;
+                this.isLoading = false;
             }).catch((error) => {
                 console.error(error);
             })

@@ -2058,20 +2058,23 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_PostCard_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/PostCard.vue */ "./resources/js/components/PostCard.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_MainLoader_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/MainLoader.vue */ "./resources/js/components/MainLoader.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    PostCard: _components_PostCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    PostCard: _components_PostCard_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    MainLoader: _components_MainLoader_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
       post: {
         user: ''
       },
-      loading: false
+      isLoading: true
     };
   },
   methods: {
@@ -2079,9 +2082,9 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var id = this.$route.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/posts/".concat(id)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/posts/".concat(id)).then(function (response) {
         _this.post = response.data.results.data;
-        _this.loading = false;
+        _this.isLoading = false;
       })["catch"](function (error) {
         console.error(error);
       });
@@ -2219,7 +2222,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "loader d-flex justify-content-center"
+    staticClass: "loader d-flex justify-content-center mt-5"
   }, [_c("div", {
     staticClass: "loadingio-spinner-bean-eater-loz2t8js4z"
   }, [_c("div", {
@@ -2441,7 +2444,9 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col my-3"
-  }, [_c("div", {
+  }, [_vm.isLoading ? _c("div", {
+    staticClass: "loader"
+  }, [_c("MainLoader")], 1) : _c("div", {
     staticClass: "post"
   }, [_c("div", {
     staticClass: "row justify-content-center"
