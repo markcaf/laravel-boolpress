@@ -7,25 +7,31 @@ Vue.use(VueRouter)
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
 import ContactsPage from './pages/ContactsPage';
+import SinglePost from './pages/SinglePost';
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
         {
             path: '/',
-            name: 'HomePage',
+            name: 'home',
             component: HomePage
         },
         {
             path: '/about',
-            name: 'AboutPage',
+            name: 'about',
             component: AboutPage
         },
         {
             path: '/contacts',
-            name: 'ContactsPage',
+            name: 'contacts',
             component: ContactsPage
         },
+        {
+            path: '/posts/:id',
+            name: 'singlePost',
+            component: SinglePost
+        }
     ]
 });
 
