@@ -3,12 +3,21 @@
     <div class="container">
       <div class="row">
         <div class="col mt-5">
+
+          <div v-if="isLoading" class="loader">
+            <h2>
+              Sto caricando...
+            </h2>
+          </div>
+
+          <div v-else class="posts-container">
             <h1>Recent posts:</h1>
             <div class="posts">
                 <div class="row">
                     <PostCard v-for="post in posts" :key="post.id" :post="post" />
                 </div>
             </div>
+          </div>
 
             <div class="d-flex align-items-center justify-content-around mb-5 mt-3">
                 <a :class="currentPage != 1 ? '' : 'disabled'" class="btn btn-primary" @click="getPrevPage(), getPosts()">Prev Page</a>
@@ -36,7 +45,7 @@ import axios from 'axios';
                 posts: [],
                 currentPage: 1,
                 lastPage: null,
-                loading: false,
+                isLoading: true,
             }
         },
 
@@ -58,7 +67,7 @@ import axios from 'axios';
                     this.posts = response.data.results.data;
                     this.currentPage = response.data.results.current_page;
                     this.lastPage = response.data.results.last_page;
-                    this.loading = false;
+                    this.isLoading = false;
                 }).catch((error) => {
                     console.error(error);
                 })

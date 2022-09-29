@@ -1996,7 +1996,7 @@ __webpack_require__.r(__webpack_exports__);
       posts: [],
       currentPage: 1,
       lastPage: null,
-      loading: false
+      isLoading: true
     };
   },
   methods: {
@@ -2017,7 +2017,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.posts = response.data.results.data;
         _this.currentPage = response.data.results.current_page;
         _this.lastPage = response.data.results.last_page;
-        _this.loading = false;
+        _this.isLoading = false;
       })["catch"](function (error) {
         console.error(error);
       });
@@ -2323,6 +2323,10 @@ var render = function render() {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col mt-5"
+  }, [_vm.isLoading ? _c("div", {
+    staticClass: "loader"
+  }, [_c("h2", [_vm._v("\n            Sto caricando...\n          ")])]) : _c("div", {
+    staticClass: "posts-container"
   }, [_c("h1", [_vm._v("Recent posts:")]), _vm._v(" "), _c("div", {
     staticClass: "posts"
   }, [_c("div", {
@@ -2334,7 +2338,7 @@ var render = function render() {
         post: post
       }
     });
-  }), 1)]), _vm._v(" "), _c("div", {
+  }), 1)])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex align-items-center justify-content-around mb-5 mt-3"
   }, [_c("a", {
     staticClass: "btn btn-primary",
