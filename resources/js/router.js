@@ -8,6 +8,7 @@ import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
 import ContactsPage from './pages/ContactsPage';
 import SinglePost from './pages/SinglePost';
+import TagsIndexPage from './pages/TagsIndexPage';
 
 const router = new VueRouter({
     mode: 'history',
@@ -31,6 +32,11 @@ const router = new VueRouter({
             path: '/posts/:id',
             name: 'singlePost',
             component: SinglePost
+        },
+        {
+            path: '/tags',
+            name: 'tagsIndexPage',
+            component: TagsIndexPage
         }
     ]
 });
